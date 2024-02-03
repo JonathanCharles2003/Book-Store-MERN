@@ -16,7 +16,7 @@ const EditBook = () => {
   const {enqueueSnackbar} = useSnackbar();
   useEffect(() => {
     setLoading(true);
-    axios.get(`https://book-store-mern-api-steel.vercel.app/${id}`)
+    axios.get(`https://book-store-mern-api-steel.vercel.app/books/${id}`)
     .then((response) => {
         setAuthor(response.data.author);
         setPublishYear(response.data.publishYear)
@@ -37,7 +37,7 @@ const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`https://book-store-mern-api-steel.vercel.app/${id}`, data)
+      .put(`https://book-store-mern-api-steel.vercel.app/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book edited sucessfully',{variant:'success'});
